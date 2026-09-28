@@ -1,0 +1,234 @@
+/* ==========================================================
+   style.css
+   Simple, clean, modern styling for the Web-Scraping Chatbot.
+   No frameworks -- just plain CSS so it's easy to read/learn from.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #f4f6fb, #eaf0fa);
+  color: #1f2430;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  text-align: center;
+  padding: 32px 16px 16px;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  font-size: 1.8rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #5a6273;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(20, 30, 60, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: #2a3350;
+}
+
+/* --- URL input row --- */
+.url-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#url-input,
+#chat-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 12px;
+  border: 1px solid #d3d9e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+#url-input:focus,
+#chat-input:focus {
+  border-color: #4a6cf7;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  background: #4a6cf7;
+  color: #fff;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+button:hover {
+  background: #3a5ce0;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: #eef1f8;
+  color: #3a4258;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+.secondary-btn:hover {
+  background: #dfe4f2;
+}
+
+/* --- Loading spinner --- */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: #5a6273;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #d3d9e6;
+  border-top-color: #4a6cf7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Status box --- */
+.status {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.status.success {
+  background: #e6f7ec;
+  color: #1e7a42;
+  border: 1px solid #b7e6c6;
+}
+
+.status.error {
+  background: #fdeaea;
+  color: #b02a2a;
+  border: 1px solid #f5c2c2;
+}
+
+/* --- Chat section --- */
+.chat-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-window {
+  height: 360px;
+  overflow-y: auto;
+  border: 1px solid #e3e7f0;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fbfcfe;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: #eef1f8;
+  color: #262c3d;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: #4a6cf7;
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-message.typing {
+  font-style: italic;
+  color: #8890a0;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 16px;
+  color: #8890a0;
+  font-size: 0.8rem;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 480px) {
+  .url-row {
+    flex-direction: column;
+  }
+  .url-row button {
+    width: 100%;
+  }
+  .chat-window {
+    height: 300px;
+  }
+}
